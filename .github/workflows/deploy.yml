@@ -18,11 +18,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'  # Updated to Node 18 since some packages require it
 
       - name: Install dependencies
         run: |
-          npm ci
+          npm install
           npm install -g serve
 
       - name: Build React app
