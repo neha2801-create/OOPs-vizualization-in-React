@@ -3,38 +3,39 @@ name: Deploy React App
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
 
       - name: Install dependencies
         run: |
-          npm install
-          npm install -g postcss postcss-cli autoprefixer
+          npm ci
+          npm install -g serve
 
-      - name: Build
-        run: npm run build
+      - name: Build React app
+        run: |
+          npm run build
         env:
           CI: false
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+          enable_jekyll: false
+          keep_files: false
+          force_orphan: true
