@@ -18,19 +18,13 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: |
-          npm install
-
-      - name: Update public URL
-        run: |
-          echo "PUBLIC_URL=/oop-visualizer" >> $GITHUB_ENV  # Add this step
+        run: npm ci  # Using ci instead of install for more reliable builds
 
       - name: Build React app
-        run: |
-          npm run build
+        run: npm run build
         env:
           CI: false
-          PUBLIC_URL: ${{ env.PUBLIC_URL }}  # Use the PUBLIC_URL
+          PUBLIC_URL: https://neha2801-create.github.io/OOPs-vizualization-in-React
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
