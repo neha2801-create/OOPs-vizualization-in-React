@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/oop-visualizer/static/css/main.e7c0ab8e.css",
-    "main.js": "/oop-visualizer/static/js/main.ab7f43a0.js",
-    "index.html": "/oop-visualizer/index.html",
-    "main.e7c0ab8e.css.map": "/oop-visualizer/static/css/main.e7c0ab8e.css.map",
-    "main.ab7f43a0.js.map": "/oop-visualizer/static/js/main.ab7f43a0.js.map"
+    "main.css": "https://neha2801-create.github.io/OOPs-vizualization-in-React/static/css/main.e7c0ab8e.css",
+    "main.js": "https://neha2801-create.github.io/OOPs-vizualization-in-React/static/js/main.ab7f43a0.js",
+    "index.html": "https://neha2801-create.github.io/OOPs-vizualization-in-React/index.html",
+    "main.e7c0ab8e.css.map": "https://neha2801-create.github.io/OOPs-vizualization-in-React/static/css/main.e7c0ab8e.css.map",
+    "main.ab7f43a0.js.map": "https://neha2801-create.github.io/OOPs-vizualization-in-React/static/js/main.ab7f43a0.js.map"
   },
   "entrypoints": [
     "static/css/main.e7c0ab8e.css",
