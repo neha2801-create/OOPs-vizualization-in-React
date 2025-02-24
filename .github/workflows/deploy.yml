@@ -1,12 +1,9 @@
 name: Deploy React App
-
 on:
   push:
     branches: [ "main" ]
-
 permissions:
   contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,17 +17,20 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Clean install dependencies
+      - name: Install dependencies
         run: |
-          rm -rf node_modules
-          rm -f package-lock.json
           npm install
+
+      - name: Update public URL
+        run: |
+          echo "PUBLIC_URL=/oop-visualizer" >> $GITHUB_ENV  # Add this step
 
       - name: Build React app
         run: |
           npm run build
         env:
           CI: false
+          PUBLIC_URL: ${{ env.PUBLIC_URL }}  # Use the PUBLIC_URL
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
